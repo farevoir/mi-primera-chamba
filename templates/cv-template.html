@@ -9,6 +9,10 @@
   - One column, real text, standard section names (Summary, Skills, Experience, Education, Languages).
   - No tables, icons, images, text boxes or multi-column layouts.
   - @page size: Letter (Americas) or A4 (most other countries), from the search profile.
+  - Contact details in the body, never in a page header/footer. Phone with country code.
+  - Dates as three-letter month + year: "Sep 2025 – Nov 2026", "Mar 2023 – Present".
+  - No photo, birth date, marital status, nationality or ID numbers (CURP, RFC, DNI).
+  - Text at 9.5pt or larger. `node scripts/html-to-pdf.mjs` checks all of this after rendering.
 -->
 <style>
   @page { size: Letter; margin: 0.4in 0.55in; }
@@ -21,7 +25,7 @@
   .role { display: flex; justify-content: space-between; margin-top: 4pt; }
   ul { margin: 1pt 0; padding-left: 15pt; }
   li { margin-bottom: 1pt; }
-  .tech { font-style: italic; font-size: 9pt; margin: 1pt 0 0; }
+  .tech { font-style: italic; font-size: 9.5pt; margin: 1pt 0 0; }
   @media screen { body { max-width: 8.5in; padding: 0.4in 0.55in; margin: 0 auto; } }
 </style>
 </head>
