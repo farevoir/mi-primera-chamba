@@ -21,7 +21,7 @@ Las herramientas de "auto-apply" envían cientos de solicitudes genéricas o inf
 ## Qué hace
 
 1. **Aprende tu perfil.** Lee tu CV y te hace unas preguntas: puestos que buscas, países donde puedes trabajar, salario mínimo y lo que descartas.
-2. **Busca vacantes.** Revisa bolsas de empleo remoto y páginas de carreras. Comprueba que cada vacante siga abierta y que seas elegible, y las ordena por *afinidad* (1–5).
+2. **Busca vacantes.** Un script lee en segundos, y sin gastar IA, las APIs públicas de empleo de tus empresas objetivo (Greenhouse, Lever, Ashby, Workable). Después Claude busca empresas nuevas en bolsas de empleo remoto. Comprueba que cada vacante siga abierta y que seas elegible, y las ordena por *afinidad* (1–5).
 3. **Adapta tu CV.** Para la vacante que elijas, relaciona cada requisito con tu experiencia y te pregunta por las habilidades que faltan, en vez de inventarlas. Después genera un PDF de una página, con texto real y a una columna, legible para los ATS.
 4. **Lleva el registro.** Anota cada vacante vista para no repetírtela y te avisa qué postulaciones necesitan seguimiento.
 
@@ -59,6 +59,7 @@ Inicia Claude Code en tu computadora y activa **Remote Control**. Desde ese mome
 
 ```
 .claude/skills/         Las cuatro skills (setup-profile, find-jobs, tailor-cv, track-applications)
+scripts/jobs.mjs        Revisa las APIs públicas de empleo de tus empresas objetivo y trae vacantes completas
 scripts/html-to-pdf.mjs HTML → PDF con un navegador Chromium local, sin dependencias
 templates/              Archivos de perfil vacíos y plantilla del CV
 example/                Candidata ficticia con todos los resultados
@@ -88,6 +89,7 @@ node scripts/html-to-pdf.mjs my-data/cv.html
 ## Personalizar
 
 - **Criterios:** edita `my-data/search-profile.md` o di *"cambia mis criterios de búsqueda"*.
+- **Empresas a vigilar:** agrega tableros a `my-data/targets.json` (p. ej. `{ "ats": "greenhouse", "board": "gitlab" }`) y corre `node scripts/jobs.mjs scan`.
 - **Diseño del CV:** edita `templates/cv-template.html` antes de configurar tu perfil, o `my-data/cv.html` después. Mantenlo a una columna.
 - **Mejores fuentes para tu país:** `find-jobs` anota lo que funcionó en la sección "Source notes" de tu perfil.
 

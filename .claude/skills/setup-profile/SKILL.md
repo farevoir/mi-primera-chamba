@@ -18,7 +18,7 @@ Creates everything in `my-data/` that the other skills read. Vocabulary in `GLOS
    - Round 2: posting languages · minimum salary with currency and period (or none) · dealbreakers (e.g. call centers, night shifts, industries) · paper size (Letter in the Americas, A4 elsewhere).
    Reply language is the one the user writes in. Max CV pages: 1, or 2 if the base CV shows 10+ years of experience. Done when every `<placeholder>` in `templates/search-profile.md` has an answer.
 
-4. **Write the profile files.** From `templates/`, create `my-data/search-profile.md` (filled in; write the affinity-5 line from the user's strongest experience), `my-data/confirmed-skills.md`, `my-data/applications.md`, and the empty folder `my-data/jobs/`.
+4. **Write the profile files.** From `templates/`, create `my-data/search-profile.md` (filled in; write the affinity-5 line from the user's strongest experience), `my-data/confirmed-skills.md`, `my-data/applications.md`, and the empty folder `my-data/jobs/`. Also create `my-data/targets.json` from `templates/targets.json`: set `titleInclude`/`titleExclude` from the target roles and seniority, and `locationInclude`/`descriptionInclude` from the countries and regions they can work for. Keep the starter boards and add companies the user names. Run `node scripts/jobs.mjs scan` once and remove boards it reports as failed.
 
 5. **Build the base CV page.** Copy `templates/cv-template.html` to `my-data/cv.html` and fill it with the full content of `cv-base.md`: the user's name in `<title>` and `<h1>`, `@page` size from the profile. Render it:
    `node scripts/html-to-pdf.mjs my-data/cv.html`

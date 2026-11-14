@@ -11,7 +11,7 @@ The rule that governs everything: **every claim in the tailored CV has backing**
 
 ## Steps
 
-1. **Read the posting.** If it's a link, read the page; if it can't be opened (LinkedIn, login walls), ask the user to paste the text. Done when you have company, title, requirements, responsibilities, location/eligibility and salary (or "not published").
+1. **Read the posting.** A Greenhouse, Lever, Ashby or Workable link: `node scripts/jobs.mjs posting <url>`. Any other link: read the page. If it can't be opened (LinkedIn, login walls), ask the user to paste the text. Done when you have company, title, requirements, responsibilities, location/eligibility and salary (or "not published").
 
 2. **Check it against `my-data/search-profile.md`.** If it hits a discard rule or dealbreaker, tell the user and ask whether to continue. Missing country or salary → note it as **to verify** and continue.
 

@@ -23,7 +23,7 @@ A job search assistant that runs inside [Claude Code](https://claude.com/claude-
 ## What it does
 
 1. **Learns your profile.** It reads your CV and asks a few questions: target roles, countries you can work for, minimum salary, dealbreakers.
-2. **Finds jobs.** It searches remote-job boards and company career pages, checks that each posting is still open and that you're eligible, then ranks the postings by *affinity* (1–5).
+2. **Finds jobs.** A script reads the public job APIs of your target companies (Greenhouse, Lever, Ashby, Workable) in seconds, at no AI cost. Claude then searches remote-job boards for new companies, checks that each posting is still open and that you're eligible, then ranks the postings by *affinity* (1–5).
 3. **Tailors your CV.** For a posting you like, it maps each requirement to your experience. It asks you about missing skills instead of inventing them, then renders a one-page PDF with real text and a single column, so ATS can read it.
 4. **Tracks everything.** It keeps a log of every posting seen, so you never get the same posting twice. It also tells you which applications are due for a follow-up.
 
@@ -61,6 +61,7 @@ Start Claude Code on your computer and turn on **Remote Control**, and you can d
 
 ```
 .claude/skills/         The four skills (setup-profile, find-jobs, tailor-cv, track-applications)
+scripts/jobs.mjs        Scans target companies' public ATS APIs and fetches full postings
 scripts/html-to-pdf.mjs HTML → PDF with a local Chromium browser, no dependencies
 templates/              Blank profile files and the CV template
 example/                A fictional candidate showing every output
@@ -90,6 +91,7 @@ node scripts/html-to-pdf.mjs my-data/cv.html
 ## Customize
 
 - **Criteria:** edit `my-data/search-profile.md` or say *"change my search criteria"*.
+- **Companies to watch:** add boards to `my-data/targets.json` (e.g. `{ "ats": "greenhouse", "board": "gitlab" }`), then run `node scripts/jobs.mjs scan`.
 - **CV design:** edit `templates/cv-template.html` before setup, or `my-data/cv.html` after it. Keep it single-column.
 - **Better sources for your country:** `find-jobs` appends what worked to the "Source notes" section of your profile.
 

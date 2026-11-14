@@ -6,7 +6,9 @@
       "Edit(./my-data/**)",
       "Write(./my-data/**)",
       "Bash(node scripts/html-to-pdf.mjs *)",
-      "PowerShell(node scripts/html-to-pdf.mjs *)"
+      "PowerShell(node scripts/html-to-pdf.mjs *)",
+      "Bash(node scripts/jobs.mjs *)",
+      "PowerShell(node scripts/jobs.mjs *)"
     ]
   }
 }
