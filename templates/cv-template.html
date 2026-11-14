@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- The PDF file name is built from the text before " - " in the title. -->
+<title>Full Name - Resume</title>
+<!--
+  ATS rules for this template:
+  - One column, real text, standard section names (Summary, Skills, Experience, Education, Languages).
+  - No tables, icons, images, text boxes or multi-column layouts.
+  - @page size: Letter (Americas) or A4 (most other countries), from the search profile.
+-->
+<style>
+  @page { size: Letter; margin: 0.4in 0.55in; }
+  * { box-sizing: border-box; }
+  body { font-family: Calibri, Carlito, Arial, sans-serif; font-size: 10pt; line-height: 1.2; color: #000; margin: 0; }
+  h1 { font-size: 16pt; text-align: center; margin: 0 0 1pt; }
+  .contact { text-align: center; margin: 0 0 5pt; }
+  h2 { font-size: 11pt; border-bottom: 1px solid #000; margin: 7pt 0 3pt; padding-bottom: 1pt; }
+  p { margin: 0 0 2pt; }
+  .role { display: flex; justify-content: space-between; margin-top: 4pt; }
+  ul { margin: 1pt 0; padding-left: 15pt; }
+  li { margin-bottom: 1pt; }
+  .tech { font-style: italic; font-size: 9pt; margin: 1pt 0 0; }
+  @media screen { body { max-width: 8.5in; padding: 0.4in 0.55in; margin: 0 auto; } }
+</style>
+</head>
+<body>
+
+<h1>Full Name</h1>
+<p class="contact">email@example.com | +00 000 000 0000 | linkedin.com/in/your-profile | City, Country (Remote)</p>
+
+<h2>Summary</h2>
+<p>Two or three lines aimed at the target role, using only facts from the base CV.</p>
+
+<h2>Skills</h2>
+<p><strong>Category:</strong> Skill, Skill, Skill</p>
+<p><strong>Category:</strong> Skill, Skill, Skill</p>
+
+<h2>Experience</h2>
+<div class="role"><span><strong>Job Title</strong>, Employer – Location</span><strong>Mon YYYY – Mon YYYY</strong></div>
+<ul>
+  <li>Achievement or responsibility, copied from the base CV</li>
+  <li>Achievement or responsibility, copied from the base CV</li>
+</ul>
+<p class="tech">Technologies: Tool, Tool, Tool</p>
+
+<h2>Education</h2>
+<div class="role"><span><strong>Degree</strong>, Institution – Location</span><strong>YYYY</strong></div>
+
+<h2>Languages</h2>
+<p>Language (Level), Language (Level)</p>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+# Personal data: CV, search profile, applications and tailored CVs. Never commit.
+my-data/
+my-data-backup-*/
+
+# Local Claude Code settings
+.claude/settings.local.json
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

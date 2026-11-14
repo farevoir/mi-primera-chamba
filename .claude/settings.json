@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch",
+      "Edit(./my-data/**)",
+      "Write(./my-data/**)",
+      "Bash(node scripts/html-to-pdf.mjs *)",
+      "PowerShell(node scripts/html-to-pdf.mjs *)"
+    ]
+  }
+}
