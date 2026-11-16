@@ -1,11 +1,11 @@
-# Buscador de Chamba
+# Mi Primera Chamba
 
 A system that finds job postings that fit the user's experience and prepares a tailored CV for each one, so the user decides whether to apply.
 
 ## Language
 
 **Base CV**:
-Verbatim transcription of the user's CV (`my-data/cv-base.md`); the only source of truth about their experience.
+Verbatim transcription of the user's CV (`my-data/profile/cv-base.md`); the only source of truth about their experience.
 _Avoid_: Master resume, general CV
 
 **Job posting**:
@@ -13,7 +13,7 @@ An opening published by a company that could interest the user.
 _Avoid_: Job, offer, vacancy
 
 **Search profile**:
-The user's criteria for considering a posting: roles, seniority, location and work authorization, languages, minimum salary and dealbreakers (`my-data/search-profile.md`).
+The user's criteria for considering a posting: roles, seniority, location and work authorization, languages, minimum salary and dealbreakers (`my-data/profile/search-profile.md`).
 _Avoid_: Filters, preferences
 
 **Dealbreaker**:
@@ -31,6 +31,10 @@ _Avoid_: Missing skill
 **Skill to confirm**:
 A skill the user hasn't documented but might have; it enters a tailored CV only after the user confirms it.
 _Avoid_: Invented skill
+
+**Company brief**:
+Four lines about the company behind a posting (what it does and for whom, size and stage, one specific detail, why the user's experience helps), kept in the posting's `job.md` and reused for "Why us?" answers and outreach.
+_Avoid_: Company research, company profile
 
 **Tailored CV**:
 The base CV reordered and reworded for one specific posting, as an ATS-friendly PDF.

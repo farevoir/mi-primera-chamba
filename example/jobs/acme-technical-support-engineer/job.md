@@ -10,6 +10,12 @@ Fictional example of the notes `tailor-cv` writes next to each tailored CV.
 - **Salary:** not published → **to verify**
 - **Affinity:** 5
 
+## Company brief
+- **What and for whom:** product analytics SaaS for mid-size B2B software companies.
+- **Size and stage:** ~150 people, Series B (fictional).
+- **Specific detail:** just launched a public API and webhooks for exporting events, so integration tickets are growing.
+- **Why Jane helps:** she already debugs webhook and API integrations with Postman and cURL, which is exactly the new ticket type.
+
 ## Requirements
 | Requirement | Status | Backing |
 |---|---|---|

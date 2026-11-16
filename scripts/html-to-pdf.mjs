@@ -13,6 +13,7 @@ import { existsSync, readFileSync, rmSync, mkdtempSync, unlinkSync } from 'node:
 import { tmpdir, platform } from 'node:os';
 import { join, resolve, dirname, basename } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { plain, slug } from './lib/text.mjs';
 
 const argv = process.argv.slice(2);
 const kwIndex = argv.indexOf('--keywords');
@@ -106,10 +107,6 @@ function checkCv(src) {
   return out;
 }
 
-function plain(s) {
-  return s.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim();
-}
-
 function defaultName(file) {
   const html = readFileSync(file, 'utf8');
   const title = html.match(/<title>([^<]*)<\/title>/i)?.[1] ?? '';
@@ -119,11 +116,6 @@ function defaultName(file) {
   const company = inJobs ? slug(folder.split('-')[0]) : '';
   const cap = company ? company[0].toUpperCase() + company.slice(1) : '';
   return cap ? `${person}_CV_${cap}.pdf` : `${person}_CV.pdf`;
-}
-
-function slug(text) {
-  return text.normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .replace(/[^A-Za-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
 }
 
 function findBrowser() {
