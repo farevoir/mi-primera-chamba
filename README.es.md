@@ -36,8 +36,8 @@ Las herramientas de "auto-apply" envían cientos de solicitudes genéricas o inf
 ## Inicio rápido
 
 ```bash
-git clone https://github.com/farevoir/buscador-chamba.git
-cd buscador-chamba
+git clone https://github.com/farevoir/mi-primera-chamba.git
+cd mi-primera-chamba
 claude
 ```
 

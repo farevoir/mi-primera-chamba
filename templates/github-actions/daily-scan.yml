@@ -28,7 +28,7 @@ jobs:
           path: data
       - uses: actions/checkout@v5
         with:
-          repository: ${{ vars.TOOL_REPO || 'farevoir/buscador-chamba' }}
+          repository: ${{ vars.TOOL_REPO || 'farevoir/mi-primera-chamba' }}
           path: tool
       - uses: actions/setup-node@v5
         with:

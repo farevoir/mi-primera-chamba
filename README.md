@@ -38,8 +38,8 @@ A job search assistant that runs inside [Claude Code](https://claude.com/claude-
 ## Quick start
 
 ```bash
-git clone https://github.com/farevoir/buscador-chamba.git
-cd buscador-chamba
+git clone https://github.com/farevoir/mi-primera-chamba.git
+cd mi-primera-chamba
 claude
 ```
 
