@@ -1,7 +1,8 @@
 # Daily job scan in the cloud, for a PRIVATE repo that holds your my-data/ folder.
 # Copy to <your data repo>/.github/workflows/daily-scan.yml. It checks out the public tool repo,
-# runs `jobs.mjs daily` against your data, commits the updated log, and opens an issue listing
-# new postings, which GitHub sends to your email and the GitHub mobile app. No AI, no secrets.
+# runs `jobs.mjs daily` against your data, commits the updated log, and opens an issue every day:
+# new postings, or a closed "no new postings" one, which GitHub sends to your email and the GitHub
+# mobile app. No AI, no secrets.
 #
 # Optional repository variable TOOL_REPO (owner/name) if you use a fork of the tool.
 
@@ -49,16 +50,23 @@ jobs:
           git diff --cached --quiet || git commit -m "Daily scan $(date -u +%F)"
           git push
 
-      - name: Notify new postings
-        if: steps.scan.outputs.new != '' && steps.scan.outputs.new != '0'
+      - name: Notify
+        # New postings: an open issue (the previous one is closed). Nothing new: a closed
+        # "no new postings" issue, so the daily email still confirms the scan ran.
         working-directory: data
         env:
           GH_TOKEN: ${{ github.token }}
+          NEW: ${{ steps.scan.outputs.new }}
         run: |
-          gh label create new-postings --color 1D76DB --description "Daily scan results" --force
-          for n in $(gh issue list --label new-postings --state open --json number -q '.[].number'); do
-            gh issue close "$n" --reason completed
-          done
-          gh issue create --label new-postings \
-            --title "${{ steps.scan.outputs.new }} new posting(s) — $(date -u +%F)" \
-            --body-file new-postings.md
+          today=$(date -u +%F)
+          if [ -n "$NEW" ] && [ "$NEW" != "0" ]; then
+            gh label create new-postings --color 1D76DB --description "Daily scan results" --force
+            for n in $(gh issue list --label new-postings --state open --json number -q '.[].number'); do
+              gh issue close "$n" --reason completed
+            done
+            gh issue create --label new-postings --title "$NEW new posting(s) — $today" --body-file new-postings.md
+          else
+            gh label create scan-status --color BFD4F2 --description "Daily scan ran, nothing new" --force
+            url=$(gh issue create --label scan-status --title "No new postings — $today" --body-file new-postings.md)
+            gh issue close "$url" --reason completed
+          fi

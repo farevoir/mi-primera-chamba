@@ -16,14 +16,14 @@
     "SessionStart": [
       {
         "hooks": [
-          { "type": "command", "command": "node scripts/sync-data.mjs pull", "timeout": 60, "statusMessage": "Syncing my-data" }
+          { "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/scripts/sync-data.mjs\" pull", "timeout": 60, "statusMessage": "Syncing my-data" }
         ]
       }
     ],
     "Stop": [
       {
         "hooks": [
-          { "type": "command", "command": "node scripts/sync-data.mjs push", "timeout": 60 }
+          { "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/scripts/sync-data.mjs\" push", "timeout": 60 }
         ]
       }
     ]
